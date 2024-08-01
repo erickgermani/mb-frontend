@@ -1,0 +1,44 @@
+<script setup>
+const props = defineProps(['input', 'validate', 'handleChange']);
+
+async function handleBlur(evt) {
+	const { value } = evt.target;
+
+	props.input.setValue(value);
+
+	await props.validate();
+}
+</script>
+
+<style lang="scss" scoped>
+@import '_input.styles';
+</style>
+
+<template>
+	<div class="field" :class="input.invalid && 'error'">
+		<div class="input" :class="input.disabled && 'disabled'">
+			<label :for="input.name"
+				>{{ input.label }} <span v-if="input.required">*</span></label
+			>
+
+			<input
+				:id="input.name"
+				:name="input.name"
+				:placeholder="input.placeholder"
+				:type="input.type"
+				:autocomplete="input.autocomplete"
+				:required="input.required"
+				:maxlength="input.maxlength"
+				:disabled="input.disabled"
+				:readonly="input.readonly"
+				@input="input.mask"
+				@blur="handleBlur"
+				@change="(evt) => (handleChange ? handleChange(evt) : null)"
+				@beforeinput="input.onBeforeInput"
+			/>
+		</div>
+		<div class="field-error">
+			<p>{{ input.label }} inválido.</p>
+		</div>
+	</div>
+</template>
