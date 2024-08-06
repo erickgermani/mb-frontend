@@ -1,13 +1,15 @@
 <script setup>
-defineProps(['text', 'onClick', 'disabled']);
+defineProps(['text', 'onClick', 'disabled', 'type']);
 </script>
 
 <style lang="scss">
-@import '_input.styles';
+@import '_button.styles';
 </style>
 
 <template>
-	<div class="button">
-		<button @click="onClick" :disabled="disabled">{{ text }}</button>
+	<div class="button" :class="type === 'submit' ? 'submit' : ''">
+		<button @click="onClick" :disabled="disabled" :type="type ?? 'button'">
+			{{ text }}
+		</button>
 	</div>
 </template>

@@ -1,11 +1,11 @@
 function formDataToObject(formData) {
-  const object = {};
+	const object = {};
 
-  formData.forEach((value, key) => {
-    object[key] = value.toString();
-  });
+	formData.forEach((value, key) => {
+		if (value) object[key] = value.toString();
+	});
 
-  return object;
+	return object;
 }
 
 export { formDataToObject };

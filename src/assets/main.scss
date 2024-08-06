@@ -1,1 +1,45 @@
 @import './base.css';
+@import './colors.css';
+
+main {
+	padding: 24px;
+	h1 {
+		margin: 12px 0;
+	}
+	form {
+		.actions {
+			margin-top: 12px;
+			&.row {
+				.button {
+					&.submit {
+						flex: 1;
+					}
+				}
+			}
+			.button {
+				&.submit {
+					button {
+						background-color: var(--orange);
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+	.row {
+		display: flex;
+		gap: 12px;
+	}
+	.resume {
+		&.pf {
+			.pj {
+				display: none;
+			}
+		}
+		&.pj {
+			.pf {
+				display: none;
+			}
+		}
+	}
+}

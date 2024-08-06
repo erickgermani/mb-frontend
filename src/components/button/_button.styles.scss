@@ -1,0 +1,12 @@
+.button {
+	button {
+		appearance: none;
+		background-color: transparent;
+		color: var(--orange);
+		border: 2px solid var(--orange);
+		width: 100%;
+		font-size: 1.2rem;
+		border-radius: 6px;
+		padding: 8px 24px;
+	}
+}
